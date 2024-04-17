@@ -9,10 +9,10 @@ var playerY=10;
 var playerObj="";
 
 function playerUpdate(){
-    fabric.Image.fromURL("player.png", function (Img) {
+    fabric.Image.fromURL("axolot.webp", function (Img) {
         playerObj=Img;
-        playerObj.scaleToWidth(150);
-        playerObj.scaleToHeight(140);
+        playerObj.scaleToWidth(110);
+        playerObj.scaleToHeight(90);
         playerObj.set({
             top:playerY,
             left:playerX
@@ -87,5 +87,37 @@ function myKeydown(e){
     }
     if (keyPressed=="89") {
         newImage("yellow_wall.png")
+    }
+}
+
+function up(){
+    if(playerY>=0){
+        playerY=playerY-blockHeight;
+        canvas.remove(playerObj);
+        playerUpdate()
+    }
+}
+
+function down(){
+    if(playerY<=555){
+        playerY=playerY+blockHeight;
+        canvas.remove(playerObj);
+        playerUpdate()
+    }
+}
+
+function left(){
+    if(playerX>=0){
+        playerX=playerX-blockWidth;
+        canvas.remove(playerObj);
+        playerUpdate()
+    }
+}
+
+function right(){
+    if(playerX<=1200){
+        playerX=playerX+blockWidth;
+        canvas.remove(playerObj);
+        playerUpdate()
     }
 }
